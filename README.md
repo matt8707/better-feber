@@ -1,6 +1,8 @@
 # better-feber
 
-userscript for feber.se
+[Userscript](http://tampermonkey.net/) for [https://feber.se/](https://feber.se/)
+
+## features
 
 * turn on dark mode and improve styles
 * nuke annoying anti-adblock kitten
