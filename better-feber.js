@@ -399,7 +399,9 @@
     form.addEventListener("submit", handleSubmit);
 
     // open
-    document.querySelector("f-menu").append(
+    const fMenu = document.querySelector("f-menu");
+    const menuTarget = document.querySelector("f-menu > f-menu-premium");
+    fMenu.insertBefore(
       Object.assign(document.createElement("button"), {
         classList: "open",
         innerHTML: `
@@ -418,7 +420,8 @@
             ? (container.style.display = "block") //
             : (container.style.display = "none");
         },
-      })
+      }),
+      menuTarget
     );
 
     // close
