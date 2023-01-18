@@ -542,8 +542,12 @@
         }
 
         // related_ads
-        const related = node.querySelector("f-internallinks-new");
-        if (settings?.related && related.dataset.rp === "yes") remove("related", related);
+        if (settings?.related) {
+          const related = node.querySelector("f-internallinks-new");
+          if (related && related.dataset && related.dataset.rp === "yes") {
+            remove("related", related);
+          }
+        }
 
         // disqus_bubble
         const disqusBubble = node.querySelector("f-article-footer > f-bubble");
