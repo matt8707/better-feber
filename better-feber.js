@@ -387,10 +387,11 @@
         const allBoxes = form.querySelectorAll("input[type=checkbox]");
         for (const box of allBoxes) {
           box.checked = false;
-          const ignore = ["console", "sound"];
+          const ignore = ["console"];
           if (ignore.indexOf(box.name) === -1 && !box.name.startsWith("filter_")) {
             box.checked = true;
           }
+          if (box.name === "sound") box.checked = saveState?.sound;
           if (box.name === "filter_bil") box.checked = true;
           if (box.name === "filter_fordon") box.checked = true;
         }
