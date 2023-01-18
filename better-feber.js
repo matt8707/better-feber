@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         better-feber
-// @version      0.3.1
+// @version      0.3.2
 // @description  enhancements for feber.se
 // @license      MIT
 // @author       matt8707
@@ -83,7 +83,7 @@
           #cog:hover {
             fill: var(--f-menu-hover);
           }
-    
+
           .open {
             background-color: transparent;
             border: none;
@@ -131,11 +131,11 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
           }
-    
+
           .modal {
             background-color: rgba(34, 34, 34, 0.95);
             color: var(--f-menu-nohover);
-            margin: 10em auto;
+            margin: 5em auto;
             padding: 30px;
             border-radius: 15px;
             width: fit-content;
@@ -151,12 +151,15 @@
             font-size: 1.1em;
             font-weight: 300;
           }
-    
+
           label input {
             margin: 0 0 8px 0;
           }
-    
+
           input[type="submit"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
             margin-top: 0.4em;
             background-color: rgb(49 49 49);
             border: none;
@@ -182,15 +185,15 @@
           .item {
             padding-bottom: 20px;
           }
-    
+
           .general {
             width: 300px;
           }
-    
+
           .visibility {
             width: 300px;
           }
-    
+
           .filter {
             width: 180px;
           }
@@ -205,12 +208,12 @@
             margin-top: 0.12em;
             letter-spacing: 1.3px;
           }
-    
+
           .title {
             display: block;
             margin: -23px 0 0 25px;
           }
-    
+
           .info {
             opacity: 0.4;
             position: absolute;
@@ -220,7 +223,7 @@
             font-weight: 300;
             font-family: system-ui;
           }
-    
+
           .actions {
             display: flex;
             justify-content: space-evenly;
@@ -240,13 +243,13 @@
             max-width: fit-content;
             margin: 0 auto 17px auto;
           }
-    
+
           .offload-sticky {
             position: sticky;
             top: 50%;
             user-select: none;
           }
-    
+
           .offload-button {
             margin: 20px auto;
             display: flex;
@@ -277,11 +280,11 @@
     const item = (id, title, desc = "") => {
       return `
         <label for="${id}">
-          <input name="${id}" type="checkbox" ${saveState?.[id] || false ? "checked" : ""}>
+          <input name="${id}" id="${id}" type="checkbox" ${saveState?.[id] || false ? "checked" : ""}>
           <span class="title">${title}</span>
+          ${desc === "" ? "" : "<br><br>"}
+          <span class="info">${desc}</span>
         </label>
-        ${desc === "" ? "" : "<br><br>"}
-        <span class="info">${desc}</span>
         <br>
       `;
     };
